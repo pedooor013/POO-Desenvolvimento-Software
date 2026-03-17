@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        /*
         int[] arrayNumeros = new int[10];
 
         System.out.println("Digite " + arrayNumeros.length + " números:");
@@ -35,7 +34,7 @@ public class Main {
                 System.out.println(arrayNumeros[i]);
             }
         }
-*/
+
         int vetorUm[] = new int[3];
         int vetorDois[] = new int[3];
         int vetorFinal[] = new int[3];
