@@ -1,7 +1,9 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {
     public static Scanner input = new Scanner(System.in);
+    public static DecimalFormat df = new DecimalFormat("0.00");
 
     public static void main() {
 
@@ -40,7 +42,7 @@ public class Main {
                 main();
                 break;
             case 6:
-                //ValoresPrimos();
+                ValoresPrimos();
                 main();
                 break;
             case 7:
@@ -173,7 +175,37 @@ public class Main {
         System.out.println("O " + numUser + "º mês é " + meses[numUser - 1]);
     }
 
-    public static void Salario(){
-        
+    public static void Salario() {
+        System.out.println("=== Salários ===");
+
+        System.out.println("Digite o numero de funcionarios: ");
+        int numFuncionarios = input.nextInt();
+
+        float arraySalarios[] = new float[numFuncionarios];
+        float mediaSalarial = 0;
+
+        for (int i = 0; i < numFuncionarios; i++) {
+            System.out.println("Digite o salário do " + (i + 1) + "º funcionário:");
+            arraySalarios[i] = input.nextFloat();
+
+            mediaSalarial += arraySalarios[i];
+        }
+
+        mediaSalarial = mediaSalarial / numFuncionarios;
+
+        System.out.println("A média salarial é R$" + df.format(mediaSalarial));
+
+        int quantFuncionariosSalarioAcima = 0;
+        for (int i = 0; i < numFuncionarios; i++) {
+            if (arraySalarios[i] > mediaSalarial) {
+                quantFuncionariosSalarioAcima++;
+            }
+        }
+
+        System.out.println(quantFuncionariosSalarioAcima + " funcionário(s) ganha(m) acima da média salarial!");
+    }
+
+    public static void ValoresPrimos(){
+
     }
 }
