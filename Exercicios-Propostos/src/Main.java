@@ -32,11 +32,11 @@ public class Main {
                 main();
                 break;
             case 4:
-                //Datas();
+                Datas();
                 main();
                 break;
             case 5:
-                //Salario();
+                Salario();
                 main();
                 break;
             case 6:
@@ -153,5 +153,27 @@ public class Main {
 
         System.out.println(horas + " Horas " + minutos + " Minutos " + segundosUser + " Segundos");
 
+    }
+
+    public static void Datas() {
+        System.out.println("=== Datas ===");
+
+        String meses[] = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+        int numUser = 0;
+        do {
+            System.out.println("Digite um número de 1 a 12: ");
+            numUser = input.nextInt();
+
+            if (numUser < 1 || numUser > 12) {
+                System.out.println("Número inválido! Digite novamente!");
+            }
+
+        } while (numUser < 1 || numUser > 12);
+
+        System.out.println("O " + numUser + "º mês é " + meses[numUser - 1]);
+    }
+
+    public static void Salario(){
+        
     }
 }
