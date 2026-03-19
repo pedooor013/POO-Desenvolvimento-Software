@@ -205,7 +205,38 @@ public class Main {
         System.out.println(quantFuncionariosSalarioAcima + " funcionário(s) ganha(m) acima da média salarial!");
     }
 
-    public static void ValoresPrimos(){
+    public static void ValoresPrimos() {
+        System.out.println("=== Valores Primos ===");
 
+        System.out.println("Digite quantos números você deseja digitar: ");
+        int tamanhoArray = input.nextInt();
+
+        int arrNumeros[] = new int[tamanhoArray];
+
+        for (int i = 0; i < tamanhoArray; i++) {
+            System.out.println("Digite o valor do " + (i + 1) + "º número:");
+            arrNumeros[i] = input.nextInt();
+
+            EhPrimo(arrNumeros[i]);
+        }
+    }
+
+    public static void EhPrimo(int num) {
+        int quantidadeDivisores = 0;
+
+        if (num <= 1) {
+            System.out.println(num + " não é um número primo!");
+        } else {
+
+            for (int i = 1; i <= num; i++) {
+                if ((num / i == 0)) {
+                    quantidadeDivisores++;
+                }
+            }
+
+            if (quantidadeDivisores != 2) {
+                System.out.println(num + " é um número primo!");
+            }
+        }
     }
 }
