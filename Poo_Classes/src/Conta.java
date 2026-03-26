@@ -28,6 +28,7 @@ public class Conta {
     public double getSaldo() {
         return this.saldo;
     }
+
     private void setSaldo(float saldo) {
         this.saldo = saldo;
     }
@@ -71,5 +72,4 @@ public class Conta {
         saldo = 0;
         limite = limiteUser;
     }
-
 }

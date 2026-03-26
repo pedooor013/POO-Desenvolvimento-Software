@@ -16,7 +16,9 @@ class Main {
                 "\n01) Cadastrar usuário;" +
                 "\n02) *Indisponível* Listar usuários cadastrados; " +
                 "\n03) Selecionar um cliente;" +
-                "\n04) Sair;");
+                "\n04) Cadastrar funcionario;" +
+                "\n05) Selecionar funcionario;" +
+                "\n06) Sair;");
         int escolhaUser = input.nextInt();
         funcaoMenuPrincipal(escolhaUser);
     }
@@ -36,6 +38,14 @@ class Main {
                 mostrarMenuPrincipal();
                 break;
             case 4:
+                cadastrarFuncionario();
+                mostrarMenuPrincipal();
+                break;
+            case 5:
+                selecionarFuncionario();
+                mostrarMenuPrincipal();
+                break;
+            case 6:
                 System.out.println("Saindo...");
                 System.exit(0);
                 break;
@@ -48,19 +58,19 @@ class Main {
 
     public static void cadastrarUsuario() {
 
-        if(contaNova == null) {
+        if (contaNova == null) {
 
-        System.out.println("=== Cadastrar usuário ===");
+            System.out.println("=== Cadastrar usuário ===");
 
-        System.out.println("Digite o seu nome: ");
-        String nomeUser = input.next();
+            System.out.println("Digite o seu nome: ");
+            String nomeUser = input.next();
 
-        System.out.println("Digite o seu limite: ");
-        double limite = input.nextDouble();
+            System.out.println("Digite o seu limite: ");
+            double limite = input.nextDouble();
 
-        contaNova = new Conta(nomeUser, limite);
-        System.out.println("Conta criada com sucesso!");
-        }else {
+            contaNova = new Conta(nomeUser, limite);
+            System.out.println("Conta criada com sucesso!");
+        } else {
             System.out.println("Usuário já cadastrado!");
         }
     }
@@ -129,11 +139,20 @@ class Main {
         System.out.println("Digite o valor do deposito: ");
         double valorDeposito = input.nextDouble();
 
-        if(contaNova.depositarVerifica(valorDeposito)) {
+        if (contaNova.depositarVerifica(valorDeposito)) {
             System.out.println("Deposito realizado com sucesso!");
-            System.out.println("Saldo atual: R$" +  contaNova.getSaldo());
-        }else{
+            System.out.println("Saldo atual: R$" + contaNova.getSaldo());
+        } else {
             System.out.println("Não foi possível realizar o deposito! Tente novamente!");
         }
+    }
+
+    public static void cadastroFuncionario() {
+        System.out.println("=== Cadastro Funcionario ===");
+
+        Funcionario funcionario = new Funcionario();
+
+        System.out.println("Digite o seu nome: ");
+        funcionario.setNome(input.next());
     }
 }
