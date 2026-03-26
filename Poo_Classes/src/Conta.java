@@ -1,10 +1,47 @@
 public class Conta {
 
     private static int proximoId = 1;
-    int id;
-    String nome;
-    double saldo;
-    double limite;
+    private int id;
+    private String nome;
+    private double saldo;
+    private double limite;
+
+    //Get & Set
+
+    //Id
+    public int getId() {
+        return this.id;
+    }
+
+    //Nome
+    public void setNome(String nome) {
+        if (nome != null && nome.length() > 2) {
+            this.nome = nome;
+        }
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    //Saldo
+    public double getSaldo() {
+        return this.saldo;
+    }
+    private void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
+
+    //Limite
+    public double getLimite() {
+        return this.limite;
+    }
+
+    public void setLimite(double vlrLimite) {
+        if (vlrLimite > 0) {
+            this.limite = vlrLimite;
+        }
+    }
 
     public boolean sacarVerifica(double valor) {
         if (valor > (this.saldo + this.limite) || valor <= 0) {

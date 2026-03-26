@@ -117,7 +117,7 @@ class Main {
 
         if (contaNova.sacarVerifica(valorSaque)) {
             System.out.println("Saque realizado com sucesso!");
-            System.out.println("Saldo atual: R$" + contaNova.saldo);
+            System.out.println("Saldo atual: R$" + contaNova.getSaldo());
         } else {
             System.out.println("Não foi possível realizar o saque! Tente novamente!");
         }
@@ -131,7 +131,7 @@ class Main {
 
         if(contaNova.depositarVerifica(valorDeposito)) {
             System.out.println("Deposito realizado com sucesso!");
-            System.out.println("Saldo atual: R$" +  contaNova.saldo);
+            System.out.println("Saldo atual: R$" +  contaNova.getSaldo());
         }else{
             System.out.println("Não foi possível realizar o deposito! Tente novamente!");
         }
