@@ -39,10 +39,11 @@ public class Produto {
     public String toString() {
         return "Nome: %s | Preço: %.2f | Codigo de Barras: %s".formatted(getNome(), getPreco(), getCodigoBarras());
     }
-    public boolean ehRepetido(String codigoBarras){
-        if(this.codigoBarras.equals(codigoBarras)){
+
+    public boolean ehRepetido(String codigoBarras) {
+        if (this.codigoBarras.equals(codigoBarras)) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

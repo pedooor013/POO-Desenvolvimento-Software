@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Loja {
     static Scanner input = new Scanner(System.in);
-    static Produto[] produtosCadastrados = new Produto[100];
-    static Produto[] carrinhoProdutoCliente = new Produto[100];
+    static Produto[] produtosCadastrados = new Produto[5];
+    static Produto[] carrinhoProdutoCliente = new Produto[5];
     static int totalProdutosCadastrados = 0;
     static int totalProdutosCarrinho = 0;
 
@@ -101,6 +101,14 @@ public class Loja {
         System.out.println("Digite o codigo de barras do DVD: ");
         String codigoBarrasDvd = input.nextLine();
 
+        for (int i = 0; i < totalProdutosCadastrados; i++) {
+            if (produtosCadastrados[i].ehRepetido(codigoBarrasDvd)) {
+                System.out.println("Codigo de barras já digitado! Digite outro!");
+                cadastroDvd();
+            }
+        }
+
+
         produtosCadastrados[totalProdutosCadastrados] = new DVD(nomeDvd, valorDvd, duracaoDvd, codigoBarrasDvd);
         totalProdutosCadastrados++;
         System.out.println("DVD cadastrado com sucesso!");
@@ -122,6 +130,13 @@ public class Loja {
         System.out.println("Digite o codigo de barras do CD: ");
         String codigoBarrasCd = input.nextLine();
 
+        for (int i = 0; i < totalProdutosCadastrados; i++) {
+            if (produtosCadastrados[i].ehRepetido(codigoBarrasCd)) {
+                System.out.println("Codigo de barras já digitado! Digite outro!");
+                cadastroCd();
+            }
+        }
+
         produtosCadastrados[totalProdutosCadastrados] = new CD(nomeCd, valorCd, numFaixasCd, codigoBarrasCd);
         totalProdutosCadastrados++;
         System.out.println("CD cadastrado com sucesso!");
@@ -141,6 +156,13 @@ public class Loja {
 
         System.out.println("Digite o codigo de barras do livro: ");
         String codigoBarrasLivro = input.nextLine();
+
+        for (int i = 0; i < totalProdutosCadastrados; i++) {
+            if (produtosCadastrados[i].ehRepetido(codigoBarrasLivro)) {
+                System.out.println("Codigo de barras já digitado! Digite outro!");
+                cadastroLivro();
+            }
+        }
 
         produtosCadastrados[totalProdutosCadastrados] = new Livro(nomeLivro, valorLivro, autorLivro, codigoBarrasLivro);
         totalProdutosCadastrados++;
@@ -219,13 +241,4 @@ public class Loja {
             System.out.println((i + 1) + ") " + carrinhoProdutoCliente[i].toString());
         }
     }
-    /*
-        No método Loja.main(), após a impressão do vetor (feita na questão
-        anterior), escolha um dos 5 produtos e crie duas novas instâncias
-        idênticas a ele: uma com o mesmo código de barras e outra com o
-        código diferente. Efetue a busca deste produto no vetor utilizando as
-        duas instâncias e verifique o resultado.
-     * */
-
-
 }
