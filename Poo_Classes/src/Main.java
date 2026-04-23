@@ -3,6 +3,7 @@ import java.util.Scanner;
 class Main {
     public static Scanner input = new Scanner(System.in);
     public static Conta contaNova;
+    public static Cliente cliente;
 
     public static void main(String[] args) {
 
@@ -13,12 +14,16 @@ class Main {
 
     public static void mostrarMenuPrincipal() {
         System.out.println("O que deseja fazer: " +
-                "\n01) Cadastrar usuário;" +
-                "\n02) *Indisponível* Listar usuários cadastrados; " +
-                "\n03) Selecionar um cliente;" +
-                "\n04) Cadastrar funcionario;" +
-                "\n05) Selecionar funcionario;" +
-                "\n06) Sair;");
+                "\n01) wCadastrar usuário;" +
+                "\n02) Selecionar um usuário;" +
+                "\n03) Listar usuários cadastrados; " + //Fazer
+                "\n04) Cadastrar conta;" +
+                "\n05) Selecionar uma conta; " +
+                "\n06) Listar contas; " + //Fazer
+                "\n07) Cadastrar funcionario;" +
+                "\n08) Selecionar funcionario;" +
+                "\n09) Listar funcionarios;" +
+                "\n10) Sair;");
         int escolhaUser = input.nextInt();
         funcaoMenuPrincipal(escolhaUser);
     }
@@ -30,22 +35,38 @@ class Main {
                 mostrarMenuPrincipal();
                 break;
             case 2:
-                //listarUsuariosCadastrados();
+                selecionarUsuario();
                 mostrarMenuPrincipal();
                 break;
             case 3:
-                selecionarCliente();
+                listarUsuariosCadastrados();
                 mostrarMenuPrincipal();
                 break;
             case 4:
-                cadastrarFuncionario();
+                cadastrarConta();
                 mostrarMenuPrincipal();
                 break;
             case 5:
-                selecionarFuncionario();
+                selecionarConta();
                 mostrarMenuPrincipal();
                 break;
             case 6:
+                listarContas();
+                mostrarMenuPrincipal();
+                break;
+            case 7:
+                cadastroFuncionario();
+                mostrarMenuPrincipal();
+                break;
+            case 8:
+                selecionarConta();
+                mostrarMenuPrincipal();
+                break;
+            case 9:
+                listarFuncionarios();
+                mostrarMenuPrincipal();
+                break;
+            case 10:
                 System.out.println("Saindo...");
                 System.exit(0);
                 break;
@@ -56,32 +77,37 @@ class Main {
         }
     }
 
+    //Usuarios
     public static void cadastrarUsuario() {
 
-        if (contaNova == null) {
+        System.out.println("=== Cadastrar usuário ===");
 
-            System.out.println("=== Cadastrar usuário ===");
+        System.out.println("Digite o seu nome: ");
+        String nomeUser = input.next();
 
-            System.out.println("Digite o seu nome: ");
-            String nomeUser = input.next();
+        System.out.println("Digite o seu sobrenome: ");
+        String sobrenomeUser = input.nextLine();
 
-            System.out.println("Digite o seu limite: ");
-            double limite = input.nextDouble();
+        System.out.println("Digite o seu CPF: ");
+        String cpfUser = input.next();
 
-            contaNova = new Conta(nomeUser, limite);
-            System.out.println("Conta criada com sucesso!");
-        } else {
-            System.out.println("Usuário já cadastrado!");
-        }
+        cliente = new Cliente(nomeUser, sobrenomeUser, cpfUser);
+
+        System.out.println("Cadastrado realizado com sucesso!");
     }
 
-    public static void selecionarCliente() {
+    public static void selecionarUsuario() {
+        System.out.println();
+    }
+
+    //Contas
+    public static void selecionarConta() {
         //Necessário fazer o codigo para mais de um cliente, codigo base somente!
 
-        mostrarMenuCliente();
+        mostrarMenuConta();
     }
 
-    public static void mostrarMenuCliente() {
+    public static void mostrarMenuConta() {
         System.out.println("=== Funções Cliente ===");
 
         System.out.println("01) Realizar o saque;" +
@@ -91,10 +117,10 @@ class Main {
 
         int escolhaUser = input.nextInt();
 
-        escolhaFuncaoMenuCliente(escolhaUser);
+        escolhaFuncaoMenuConta(escolhaUser);
     }
 
-    public static void escolhaFuncaoMenuCliente(int escolhaUser) {
+    public static void escolhaFuncaoMenuConta(int escolhaUser) {
         switch (escolhaUser) {
             case 1:
                 realizarSaque();
@@ -114,7 +140,7 @@ class Main {
                 break;
             default:
                 System.out.println("Valor inválido! Digite novamente!");
-                mostrarMenuCliente();
+                mostrarMenuConta();
                 break;
         }
     }
@@ -147,6 +173,7 @@ class Main {
         }
     }
 
+    //Funcionario
     public static void cadastroFuncionario() {
         System.out.println("=== Cadastro Funcionario ===");
 

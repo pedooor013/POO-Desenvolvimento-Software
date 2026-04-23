@@ -1,27 +1,15 @@
 public class Conta {
 
-    private static int proximoId = 1;
-    private int id;
-    private String nome;
+    private static int id;
     private double saldo;
     private double limite;
+    private Cliente cliente;
 
     //Get & Set
 
     //Id
     public int getId() {
         return this.id;
-    }
-
-    //Nome
-    public void setNome(String nome) {
-        if (nome != null && nome.length() > 2) {
-            this.nome = nome;
-        }
-    }
-
-    public String getNome() {
-        return this.nome;
     }
 
     //Saldo
@@ -44,6 +32,25 @@ public class Conta {
         }
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Conta(){
+        this.id = id++;
+    }
+
+    public Conta(double limite, Cliente cliente) {
+        this.id = id++;
+        this.saldo = 0;
+        this.limite = limite;
+        this.cliente = cliente;
+    }
+
     public boolean sacarVerifica(double valor) {
         if (valor > (this.saldo + this.limite) || valor <= 0) {
             return false;
@@ -63,13 +70,6 @@ public class Conta {
     }
 
     public String toString() {
-        return "Id: " + this.id + " | Nome: " + this.nome + " | Saldo: " + this.saldo + " | Limite: " + this.limite;
-    }
-
-    Conta(String nomeUser, double limiteUser) {
-        id = proximoId++;
-        nome = nomeUser;
-        saldo = 0;
-        limite = limiteUser;
+        return "Id: " + this.id + cliente.toStringConta() + " | Saldo: " + this.saldo + " | Limite: " + this.limite;
     }
 }
