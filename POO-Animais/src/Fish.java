@@ -29,4 +29,10 @@ public class Fish extends Animal{
             return "Seawater";
         }
     }
+
+    @Override
+    public void move(){
+        System.out.println("Fish is swimming!");
+        super.setLocalization(super.getLocalization() + 2);
+    }
 }

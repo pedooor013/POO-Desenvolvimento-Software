@@ -49,4 +49,8 @@ public class Animal {
     public String toString() {
         return "Name: " + this.name + " | Paws: " +this.paws + " | Speed: " + this.speed + " | Localization: " + this.localization;
     }
+
+    public void move(){
+        System.out.println("Animal is moving!");
+    }
 }
