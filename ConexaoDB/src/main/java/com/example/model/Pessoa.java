@@ -33,12 +33,15 @@ public class Pessoa {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", id=" + id +
-                '}';
+        return "Pessoa :" +
+                "\nID: " + this.id +
+                "\nNome: " + this.nome +
+                "\nEmail: " + this.email;
     }
 }
